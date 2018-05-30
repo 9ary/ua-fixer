@@ -1,21 +1,15 @@
 {
   "manifest_version": 2,
-  "name": "__MSG_addonName__",
-  "default_locale": "en_US",
-  "description": "__MSG_addonDescription__",
-  "author": "__MSG_addonAuthorsList__",
-  "version": "1.5",
-  "homepage_url": "http://github.com/wisniewskit/google-search-fixer",
+  "name": "ua-fixer",
+  "description": "Force Mobile user agent instead of Tablet and spoof Chrome for Google search",
+  "author": "Thomas Wisniewski <twisniewski@mozilla.com>, Streetwalrus",
+  "version": "1.0",
+  "homepage_url": "http://github.com/Streetwalrus/ua-fixer",
   "applications": {
     "gecko": {
+      "id": "ua-fixer@wank.party",
       "strict_min_version": "56.0"
     }
-  },
-  "icons": {
-    "16": "icons/google_fixed.svg",
-    "32": "icons/google_fixed.svg",
-    "48": "icons/google_fixed.svg",
-    "96": "icons/google_fixed.svg"
   },
   "permissions": [
     "webRequest",
@@ -30,7 +24,6 @@
   "content_scripts": [{
     "js": ["common.js", "content.js"],
     "run_at": "document_start",
-    "matches": ["*://*/*"],
-    "include_globs": ["*://(encrypted|www|maps).google.*/*"]
+    "matches": ["*://*/*"]
   }]
 }

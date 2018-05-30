@@ -6,8 +6,10 @@ const RunningAndroidVersion = navigator.userAgent.match(/Android\/[0-9.]+/) || "
 const ChromeMajorVersionToMimic = `${parseInt(RunningFirefoxVersion) + 4}.0.0.0`;
 
 const ChromePhoneUA = `Mozilla/5.0 (Linux; ${RunningAndroidVersion}; Nexus 5 Build/MRA58N) FxQuantum/${RunningFirefoxVersion} AppleWebKit/537.36 (KHTML, like Gecko) Chrome/${ChromeMajorVersionToMimic} Mobile Safari/537.36`;
-const ChromeTabletUA = `Mozilla/5.0 (Linux; ${RunningAndroidVersion}; Nexus 7 Build/JSS15Q) FxQuantum/${RunningFirefoxVersion} AppleWebKit/537.36 (KHTML, like Gecko) Chrome/${ChromeMajorVersionToMimic} Safari/537.36`;
 
-const IsPhone = navigator.userAgent.includes("Mobile");
-
-const TargetUA = IsPhone ? ChromePhoneUA : ChromeTabletUA;
+function getUA(ua, isGoogle) {
+  ua = ua.replace("Tablet;", "Mobile;");
+  if (isGoogle && ua.includes("Mobile;"))
+    ua = ChromePhoneUA;
+  return ua;
+}

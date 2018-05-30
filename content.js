@@ -5,8 +5,8 @@
 // Override the navigator.userAgent value Google Search sees
 
 window.wrappedJSObject.eval(`(function() {
+  isGoogle = e.url.match(GoogleSearchTLDs);
+  newUA = getUA(navigator.userAgent, isGoogle);
   Object.defineProperty(navigator, "userAgent", {
-    get: () => ${JSON.stringify(TargetUA)},
-    configurable: true
-  });
+    get: () => ${JSON.stringify(newUA);
 }());`);

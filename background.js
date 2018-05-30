@@ -4,19 +4,18 @@
 
 // Override the user-agent HTTP headers sent to Google Search
 
-function rewriteUserAgentForGoogleSearchTLDs(e) {
-  if (e.url.match(GoogleSearchTLDs)) {
-    for (let header of e.requestHeaders) {
-      if (header.name.toLowerCase() === "user-agent") {
-        header.value = TargetUA;
-      }
+function rewriteUserAgent(e) {
+  isGoogle = e.url.match(GoogleSearchTLDs);
+  for (let header of e.requestHeaders) {
+    if (header.name.toLowerCase() === "user-agent") {
+      header.value = getUA(header.value, isGoogle);
     }
-    return {requestHeaders: e.requestHeaders};
   }
+  return {requestHeaders: e.requestHeaders};
 }
 
 browser.webRequest.onBeforeSendHeaders.addListener(
-  rewriteUserAgentForGoogleSearchTLDs,
+  rewriteUserAgent,
   {"urls": ["*://*/*"]},
   ["blocking", "requestHeaders"]
 );
