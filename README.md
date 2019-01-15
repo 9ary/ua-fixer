@@ -1,6 +1,12 @@
 # ua-fixer
 
-several user agent fixes for Firefox Android, like making it a phone even if Firefox thinks tablet.
+several user agent fixes for Firefox Android
+
+## features
+
+* forces ua to be a phone, not a table even if Firefox thinks so
+* in mobile mode, pretend to be Chrome for Google Search
+* always present a desktop user agent to Imgur
 
 ## installation
 1. zip
