@@ -5,10 +5,9 @@
 // Override the user-agent HTTP headers sent to Google Search
 
 function rewriteUserAgent(e) {
-  isGoogle = e.url.match(GoogleSearchTLDs);
   for (let header of e.requestHeaders) {
     if (header.name.toLowerCase() === "user-agent") {
-      header.value = getUA(header.value, isGoogle);
+      header.value = getUA(header.value, e.url);
     }
   }
   return {requestHeaders: e.requestHeaders};

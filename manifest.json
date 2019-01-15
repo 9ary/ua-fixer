@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "ua-fixer",
-  "description": "Force Mobile user agent instead of Tablet and spoof Chrome for Google search",
+  "description": "Various user agent customizations for Android devices",
   "author": "Thomas Wisniewski <twisniewski@mozilla.com>, Streetwalrus",
   "version": "1.0",
   "homepage_url": "http://github.com/Streetwalrus/ua-fixer",
