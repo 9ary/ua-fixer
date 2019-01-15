@@ -4,7 +4,7 @@ several user agent fixes for Firefox Android
 
 ## features
 
-* forces ua to be a phone, not a table even if Firefox thinks so
+* forces ua to be a phone, not a tablet even if Firefox thinks so
 * in mobile mode, pretend to be Chrome for Google Search
 * always present a desktop user agent to Imgur
 
